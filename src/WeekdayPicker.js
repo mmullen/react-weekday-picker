@@ -79,7 +79,7 @@ class WeekdayPicker extends Component {
     }
     return (
       <div className="DayPicker-Month">
-        <div className="DayPicker-Weekdays">
+        <div className="DayPicker-Week">
           <div>
             {weekdays}
           </div>
@@ -91,7 +91,7 @@ class WeekdayPicker extends Component {
   renderWeekday(weekday) {
     const { locale, localeUtils, modifiers: modifierFunctions } = this.props;
 
-    let className = 'DayPicker-Weekday';
+    let className = 'DayPicker-Day';
     let modifiers = [];
 
     if (modifierFunctions) {
@@ -137,7 +137,7 @@ class WeekdayPicker extends Component {
     }
 
     return (
-      <button key={weekday} className={className} tabIndex={tabIndex}
+      <div key={weekday} className={className} tabIndex={tabIndex}
         aria-pressed={ariaSelected}
         onClick= {onClick}
         onKeyDown={(e) => this.handleDayKeyDown(e, weekday, modifiers)}
@@ -148,7 +148,7 @@ class WeekdayPicker extends Component {
         <attr title={localeUtils.formatWeekdayLong(weekday, locale)}>
           {localeUtils.formatWeekdayShort(weekday, locale)}
         </attr>
-      </button>
+      </div>
     );
   }
 
