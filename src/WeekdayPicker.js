@@ -131,10 +131,6 @@ class WeekdayPicker extends Component {
     if (onWeekdayMouseLeave) {
       onMouseLeave = (e) => this.handleWeekdayMouseLeave(e, weekday, modifiers);
     }
-    let onTouchTap = null;
-    if (onWeekdayTouchTap) {
-      onTouchTap = (e) => this.handleWeekdayTouchTap(e, weekday, modifiers)
-    }
 
     return (
       <div key={weekday} className={className} tabIndex={tabIndex}
@@ -143,7 +139,6 @@ class WeekdayPicker extends Component {
         onKeyDown={(e) => this.handleDayKeyDown(e, weekday, modifiers)}
         onMouseEnter={onMouseEnter}
         onMouseLeave= {onMouseLeave}
-        onTouchTap= {onTouchTap}
       >
         <attr title={localeUtils.formatWeekdayLong(weekday, locale)}>
           {localeUtils.formatWeekdayShort(weekday, locale)}
